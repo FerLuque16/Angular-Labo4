@@ -18,7 +18,11 @@ export class LoginComponent implements OnInit {
   }
 
   navegarHaciaQuienSoy(){
-    this.router.navigate(['/quiensoy']);
+    this.router.navigate(['/quiensoy']);  
+  }
+
+  navegarHaciaError(){
+    this.router.navigate(['/error']);  
   }
 
 }

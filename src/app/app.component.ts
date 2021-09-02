@@ -22,13 +22,4 @@ export class AppComponent {
     this.miOperacion = new Operaciones();
   }
 
-  saludar(){
-    
-    this.router.navigate(['/login'])
-    
-  };
-
-  
-
-
 }
