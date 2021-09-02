@@ -1,29 +1,29 @@
-<h1>Holas Mundo Angular</h1>
-
-<h2>{{title}}</h2>
-<br>
-<br>
-<h3>{{miUsuario.nombre}}</h3>
+<h1>Ejercicio 1</h1>
 
 <br><br>
-
-<input type="button" value="saludar" (click)=saludar()>
-
-<br><br>
-
-<input type="text" name=""  [(ngModel)] = "title">
-
-<br><br>
-
-<input type="text" name=""  [(ngModel)] = "miUsuario.nombre">
-<br><br>
-<label >Edad 1</label>
+<label >Numero 1</label>
 <br>
-<input type="text" id="edad1" >
+<input type="number" [(ngModel)] = "miOperacion.numero1" >
 <br><br>
-<label >Edad 2</label>
+<label >Numero 2</label>
 <br>
-<input type="text" id="edad2" >
+<input type="number" [(ngModel)] = "miOperacion.numero2" >
+<br>
+<label >Suma</label>
+<br>
+<input type="number" [(ngModel)] = "miOperacion.suma" >
+<br>
+
+<label >Promedio</label>
+<br>
+<input type="text" [(ngModel)] = "miOperacion.promedio" >
 <br>
 <br>
-<input type="button" value="calcular" >
+<button class="btn btn-success" (click) = "miOperacion.calcular()">Calcular</button>
+
+<button class="btn btn-warning" (click) = "miOperacion.limpiar()">Limpiar</button>
+<br>
+
+
+
+<router-outlet></router-outlet>

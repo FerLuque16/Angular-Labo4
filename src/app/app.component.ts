@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Operaciones } from './clases/operaciones';
 import { Usuario } from './clases/usuario';
 
@@ -16,14 +17,14 @@ export class AppComponent {
 
   
 
-  constructor() {
+  constructor(private router : Router) {
     this.miUsuario = new Usuario();
     this.miOperacion = new Operaciones();
   }
 
   saludar(){
     
-    console.log("Hola como va");
+    this.router.navigate(['/login'])
     
   };
 
