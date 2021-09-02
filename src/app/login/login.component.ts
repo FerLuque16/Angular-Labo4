@@ -25,4 +25,8 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/error']);  
   }
 
+  navegarHaciaEjercicio1(){
+    this.router.navigate(['/ejercicio1']); 
+  }
+
 }
