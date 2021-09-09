@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+
+import { RuteoService } from 'src/app/servicios/ruteo.service';
+
+import { AuthService } from 'src/app/servicios/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +14,25 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class HomeComponent implements OnInit {
 
-  usuarioActual:string;
-  constructor(private router:Router, private service:UsuarioService) {
-    this.usuarioActual=service.nombreUsuario;
+  notDisplayLogout = false;
+
+  displayLogIn = false;
+
+  displayRegister = false;
+  
+  constructor(private authService:AuthService, private auth: AngularFireAuth, private ruteo:RuteoService) {
+ 
+    auth.authState.subscribe(user=>{
+      if(user){
+        this.notDisplayLogout = true;
+      }
+      else{
+        this.displayLogIn = true;
+        this.displayRegister = true;
+      }
+      
+    })
+    
    }
 
   ngOnInit(): void {
@@ -19,9 +40,15 @@ export class HomeComponent implements OnInit {
 
   }
 
-  navegarHaciaLogin(){
+  navegarHacia(path:string){
+    this.ruteo.navegarHacia(path);
+  }
+
+  logOut(){
+    this.notDisplayLogout = true;
+    return this.authService.logOut();
     
-    this.router.navigate(['/login'])
+
   }
 
 }

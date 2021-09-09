@@ -5,6 +5,7 @@ import { HomeComponent } from './page/home/home.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { ErrorComponent } from './page/error/error.component';
 import { Ejercicio1Component } from './page/ejercicio1/ejercicio1.component';
+import { RegistroComponent } from './page/registro/registro.component';
 
 const routes: Routes = [
   {path: 'login',component: LoginComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'quiensoy',component: QuienSoyComponent},
   {path: 'ejercicio1', component: Ejercicio1Component},
   {path: '', redirectTo: 'login', pathMatch:'full'},
-  {path: '**', component: ErrorComponent }
+  {path: 'registro', component:RegistroComponent},
+  {path: '**', component: ErrorComponent },
  
   
 ];

@@ -11,6 +11,11 @@ import { ErrorComponent } from './page/error/error.component';
 import { Ejercicio1Component } from './page/ejercicio1/ejercicio1.component';
 import { MenuPrincipalComponent } from './page/menu-principal/menu-principal.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { RegistroComponent } from './page/registro/registro.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +24,16 @@ import { MenuPrincipalComponent } from './page/menu-principal/menu-principal.com
     QuienSoyComponent,
     ErrorComponent,
     Ejercicio1Component,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    RegistroComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

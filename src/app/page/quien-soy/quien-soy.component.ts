@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { RuteoService } from 'src/app/servicios/ruteo.service';
+
 @Component({
   selector: 'app-quien-soy',
   templateUrl: './quien-soy.component.html',
@@ -8,13 +10,13 @@ import { Router } from '@angular/router';
 })
 export class QuienSoyComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private ruteo:RuteoService) { }
 
   ngOnInit(): void {
   }
 
-  navegarHaciaAtras(){
-    this.router.navigate(['/login']);
+  navegarHacia(path:string){
+    this.ruteo.navegarHacia(path);
   }
 
 }

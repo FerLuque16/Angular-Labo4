@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "labo4-fer-luque": {
+      "hosting": {
+        "my-first-project": [
+          "labo4-fer-luque"
+        ]
+      }
+    }
+  }
+}
