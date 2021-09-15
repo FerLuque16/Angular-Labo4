@@ -14,24 +14,33 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class HomeComponent implements OnInit {
 
-  notDisplayLogout = false;
-
+  displayLogout = false;
   displayLogIn = false;
-
   displayRegister = false;
+  displayUser = false;
+
+  usuario:any;
   
   constructor(private authService:AuthService, private auth: AngularFireAuth, private ruteo:RuteoService) {
  
+    this.usuario = "";    
     auth.authState.subscribe(user=>{
       if(user){
-        this.notDisplayLogout = true;
+        
+        this.usuario = user.email;
+        this.displayUser = true;
+        this.displayLogout = true;
       }
       else{
         this.displayLogIn = true;
         this.displayRegister = true;
+        this.displayLogout = false;
+        this.displayUser = false;
       }
       
     })
+
+    
     
    }
 
@@ -45,7 +54,9 @@ export class HomeComponent implements OnInit {
   }
 
   logOut(){
-    this.notDisplayLogout = true;
+    this.displayLogout = false;
+    this.displayUser = false;
+    this.usuario = "";
     return this.authService.logOut();
     
 

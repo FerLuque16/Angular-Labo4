@@ -1,6 +1,7 @@
 <form class="form-signin">
   
 
+
   <h1 class="h3 mb-3 font-weight-normal">Por favor loguearse</h1>
 
   <label for="inputEmail" class="sr-only">Email</label>
@@ -11,13 +12,15 @@
 
   <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="nuevoUsuario.claveUsuario" name="clave">
   
-  <button class="btn btn-lg btn-primary btn-block" (click)="login(nuevoUsuario.nombreUsuario,nuevoUsuario.claveUsuario)" type="button">Ingresar</button>
+  <button class="btn btn-lg btn-success btn-block" (click)="login(nuevoUsuario.nombreUsuario,nuevoUsuario.claveUsuario)" type="button">Ingresar</button>
 
-  <button class="btn btn-lg btn-primary btn-block" (click)="navegarHacia('/registro')" type="button">Registrarse acá</button>
+  <button class="btn btn-lg btn-warning btn-block" (click)="navegarHacia('/registro')" type="button">Registrarse acá</button>
+
+  <button class="btn btn-lg btn-primary btn-block" (click)="login('prueba@gmail.com','123456')" type="button">Ingreso Rapido</button>
   
 </form>
 
-<button class="btn btn-success" (click)="navegarHacia('/quiensoy')">Ir a quien soy</button>
+
 
   <br>
   <br>

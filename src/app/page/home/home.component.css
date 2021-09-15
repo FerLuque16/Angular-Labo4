@@ -24,7 +24,7 @@
    * Dummy devices (replace them with your own or something else entirely!)
    */
   
-  .product-device {
+  /*.product-device {
     position: absolute;
     right: 10%;
     bottom: -30%;
@@ -32,8 +32,8 @@
     height: 540px;
     background-color: #333;
     border-radius: 21px;
-    -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);
+    -webkit-transform: rotate(600deg);
+    transform: rotate(40deg);
   }
   
   .product-device::before {
@@ -54,7 +54,7 @@
     left: 5%;
     background-color: #e5e5e5;
   }
-  
+  */
   
   /*
    * Extra utilities
@@ -73,3 +73,6 @@
   
   .overflow-hidden { overflow: hidden; }
   
+  .hidden-logout{
+    display: none;
+  }

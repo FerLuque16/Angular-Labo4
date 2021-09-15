@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private auth: AngularFireAuth) { 
     auth.authState.subscribe(user=>{
-      console.log(user);
+      console.log(user?.email);
     })
   }
 

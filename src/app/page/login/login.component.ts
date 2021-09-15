@@ -5,9 +5,12 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { RuteoService } from 'src/app/servicios/ruteo.service';
 
 import { AuthService } from 'src/app/servicios/auth.service';
+import { UtilidadesService } from 'src/app/servicios/utilidades.service';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -24,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   items: Observable<any[]>;
 
-  constructor(private router: Router, private service:UsuarioService, private firestore: AngularFirestore, public auth:AuthService, private ruteo:RuteoService) {
+  constructor(private router: Router, private service:UsuarioService, private firestore: AngularFirestore, public auth:AuthService, private ruteo:RuteoService, private toastr: ToastrService, private utilidad: UtilidadesService) {
     this.nuevoUsuario = new UsuarioService;
 
     
@@ -63,9 +66,13 @@ export class LoginComponent implements OnInit {
     try {
       await this.auth.login(name,pass);
       this.router.navigate(['/home']);
+
+      this.toastr.success('Logueado correctamente','Usted se ha logueado correctamente');
       console.log("El usuario se logueó correctamente");
     } catch (error:any) {
-      this.ruteo.navegarHacia('/error');
+
+      this.toastr.error(this.utilidad.convertirMensaje(error.code),'Error al loguearse');
+      console.log(error.code);
       
     }
   }
